@@ -22,5 +22,4 @@ jobs:
           pip install ahttp requests
 
       - name: Run script
-        run: python asy_post.py
-
+        run: python mypy.py
