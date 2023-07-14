@@ -1,0 +1,26 @@
+name: Daily Run
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 每天早上8点运行
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install ahttp requests
+
+      - name: Run script
+        run: python asy_post.py
+
